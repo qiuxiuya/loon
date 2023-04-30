@@ -1,5 +1,6 @@
 #!name=网易云黑胶音乐解锁
-#!desc=网易云黑椒音乐解锁，副作用：会导致无法添加歌单
+#!desc=副作用：会导致无法添加歌单
+#!author= qiuxiuya
 #!icon= https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/mini/Netease_Music.png
 [Script]
 http-request ^http[s]?:\/\/.+music.+(player\/url|playlist|entrance|\/eapi\/search\/).*$ script-path= https://raw.githubusercontent.com/qiuxiuya/loon/main/Music.js, timeout=60
