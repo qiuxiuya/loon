@@ -10,4 +10,4 @@ DOMAIN,httpdns.n.netease.com,REJECT
 http-request ^https?:\/\/.+music.+(player\/url|playlist|entrance|\/eapi\/search\/).*$ script-path= https://raw.githubusercontent.com/qiuxiuya/qiuxiuya/main/Loon/wyy.js, timeout=60
 
 [MITM]
-hostname = *.music.163.com:0
+hostname = *.music.163.com:0,%APPEND%
