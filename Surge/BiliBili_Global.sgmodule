@@ -46,4 +46,4 @@ BiliBili.AdBlock.json = type=http-response, pattern=^https:\/\/app\.bili(bili\.c
 BiliBili.AdBlock.proto = type=http-response, pattern=^https:\/\/(grpc\.biliapi\.net|app\.bilibili\.com)\/bilibili\.app\.(view\.v1\.View\/View|dynamic\.v2\.Dynamic\/DynAll|playurl\.v1\.PlayURL\/PlayView)$, requires-body=1, binary-body-mode=1, script-path=https://raw.githubusercontent.com/BiliUniverse/Enhanced/beta/js/BiliBili.ADBlock.response.beta.js
 
 [MITM]
-hostname = manga.bilibili.com, api.live.bilibili.com, api.vc.bilibili.com, app.bilibili.com, app.biliapi.net, api.bilibili.com, api.biliapi.net, grpc.biliapi.net, search.bilibili.com,api.global.bilibili.com。grpc.biliapi.net
+hostname = %APPEND% manga.bilibili.com, api.live.bilibili.com, api.vc.bilibili.com, app.bilibili.com, app.biliapi.net, api.bilibili.com, api.biliapi.net, grpc.biliapi.net, search.bilibili.com,api.global.bilibili.com。grpc.biliapi.net
