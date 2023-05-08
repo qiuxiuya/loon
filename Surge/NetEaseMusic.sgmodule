@@ -3,11 +3,11 @@
 #!author= qiuxiuya 技术指导：Key佬（我是key佬铁粉！！）  问题修复：整点猫咪🐈
 #!system=ios
 [General]
-force-http-engine-hosts = %APPEND% 59.111.*:0
+force-http-engine-hosts = %APPEND% *.music.163.com:0
 [Rule]
 DOMAIN,httpdns.n.netease.com,REJECT
 [Script]
 http-request ^https?:\/\/.+music.+(player\/url|playlist|entrance|\/eapi\/search\/).*$ script-path= https://raw.githubusercontent.com/qiuxiuya/qiuxiuya/main/Loon/wyy.js, timeout=60
 
 [MITM]
-hostname = *.music.163.com:0,%APPEND%
+hostname = hostname = %APPEND% *.music.163.com:0
