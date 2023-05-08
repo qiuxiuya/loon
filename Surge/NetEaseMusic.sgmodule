@@ -2,7 +2,7 @@
 #!desc=副作用：会导致无法添加歌单（但不影响添加收藏）
 #!author= qiuxiuya
 [Script]
-http-request ^https?:\/\/.+music.+(player\/url|playlist|entrance|\/eapi\/search\/).*$ script-path= https://raw.githubusercontent.com/qiuxiuya/qiuxiuya/main/Loon/wyy.js, timeout=60
+http-request ^https?:\/\/.+music.+(player\/url|playlist|entrance|\/eapi\/search\/).*$ script-path= https://raw.githubusercontent.com/qiuxiuya/qiuxiuya/main/Surge/wyy.js, timeout=60
 
 [MITM]
 hostname = *.music.163.com
