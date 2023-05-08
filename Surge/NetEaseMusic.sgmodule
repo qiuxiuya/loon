@@ -1,13 +1,13 @@
 #!name=解锁网易云黑胶音乐试听
 #!desc=副作用：会导致无法添加歌单（但不影响添加收藏）
-#!author= qiuxiuya
+#!author= qiuxiuya 技术指导：Key佬（我是key佬铁粉！！）  问题修复：整点猫咪🐈
 #!system=ios
 [General]
 force-http-engine-hosts = %APPEND% 59.111.*:0
-[rule]
+[Rule]
 DOMAIN,httpdns.n.netease.com,REJECT
 [Script]
-http-request ^https?:\/\/.+music.+(player\/url|playlist|entrance|\/eapi\/search\/).*$ script-path= https://raw.githubusercontent.com/qiuxiuya/qiuxiuya/main/Surge/wyy.js, timeout=60
+http-request ^https?:\/\/.+music.+(player\/url|playlist|entrance|\/eapi\/search\/).*$ script-path= https://raw.githubusercontent.com/qiuxiuya/qiuxiuya/main/Loon/wyy.js, timeout=60
 
 [MITM]
-hostname = %APPEND% 59.111.*, 112.13.119.52, 117.147.199.59, interface*.music.163.com:0, httpdns.n.netease.com, *.163jiasu.com
+hostname = *.music.163.com:0
