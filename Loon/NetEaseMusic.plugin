@@ -2,7 +2,29 @@
 #!desc=副作用：会导致无法添加歌单（但不影响添加收藏）
 #!author= qiuxiuya
 #!icon= https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Netease_Music_Unlock.png
+[General]
+force-http-engine-hosts = 59.111.*:0
 [Script]
 http-request ^https?:\/\/.+music.+(player\/url|playlist|entrance|\/eapi\/search\/).*$ script-path= https://raw.githubusercontent.com/qiuxiuya/qiuxiuya/main/Loon/wyy.js, timeout=60
+[Rule]
+DOMAIN, gdt.qq.com, REJECT
+DOMAIN, httpdns.n.netease.com, REJECT
+DOMAIN, iadmat.nosdn.127.net, REJECT
+DOMAIN, iadmusicmat.music.126.net, REJECT
+DOMAIN, iadmusicmatvideo.music.126.net, REJECT
+DOMAIN-SUFFIX, 163jiasu.com, REJECT
+
+[Rewrite]
+#开屏广告｜开屏歌曲热评｜搜索页下方横幅广告
+^https?:\/\/interface3?\.music\.163\.com\/eapi\/ad reject-dict
+
+#播放页歌名下方∶乐迷团｜关注｜播放页提示｜音乐应用红点｜播放提示?
+^https?:\/\/interface3?\.music\.163\.com\/eapi\/(community\/friends\/fans-group\/artist\/group\/get|user\/sub\/artist|music\/songshare\/text\/recommend\/get|mine\/applet\/redpoint|resniche\/position\/play\/new\/get) reject-dict
+
+#评论区插入广告｜回复广告｜首页右上角免或vip图标｜播放页的各种小提示｜评论右上角热评馆｜播放页正在试听弹窗｜播放页右上角live或直播图标入口｜首次登录黑胶过期弹窗   new resource
+^https?:\/\/interface3?\.music\.163.com\/eapi\/(comment\/feed\/inserted|v\d\/content\/exposure\/comment\/banner|link\/(position\/show\/(strategy|resource)|scene\/show)|comment\/hotcomment\/collect|vipcenter\/tspopup\/get|mlivestream\/entrance\/playpage|vipauth\/app\/auth|music-vip-membership\/client\/vip\/info) reject-dict
+
+# 搜索页热搜卡片｜猜你喜欢｜我的应用下方提醒
+^https?:\/\/interface3?\.music\.163.com\/w?e?api\/(search\/(chart|default|rcmd\/keyword|specialkeyword)|(resource-exposure\/|middle\/clientcfg\/config)|activity\/bonus\/playpage\/time\/query) reject-dict
 [MITM]
-hostname = *.music.163.com
+hostname = *.music.163.com,112.13.*, 59.111.*
