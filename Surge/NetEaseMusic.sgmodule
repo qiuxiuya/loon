@@ -2,10 +2,33 @@
 #!desc=副作用：会导致无法添加歌单（但不影响添加收藏）
 #!author= qiuxiuya 技术指导：Key佬（我是key佬铁粉！！）  问题修复：整点猫咪🐈
 #!system=ios
+[General]
+force-http-engine-hosts = %APPEND% 59.111.*:0
+
+[URL Rewrite]
+^https?:\/\/httpdns.n.netease.com\/ - reject
+
+[Rule]
+DOMAIN,iadmusicmat.music.126.net,REJECT-NO-DROP
+DOMAIN,iadmat.nosdn.127.net,REJECT-NO-DROP
+DOMAIN,iadmatapk.nosdn.127.net,REJECT-NO-DROP
+DOMAIN,iadmusicmatvideo.music.126.net,REJECT-NO-DROP
+DOMAIN,httpdns.n.netease.com,REJECT-NO-DROP
+DOMAIN,gdt.qq.com,REJECT-NO-DROP
+DOMAIN-SUFFIX,163jiasu.com,REJECT-NO-DROP
+
+[Map Local]
+^https?:\/\/interface3?\.music\.163\.com\/eapi\/ad data="https://raw.githubusercontent.com/Keywos/rule/main/mocks/blank_dict.json"
+
+^https?:\/\/interface3?\.music\.163\.com\/eapi\/(community\/friends\/fans-group\/artist\/group\/get|user\/sub\/artist|music\/songshare\/text\/recommend\/get|mine\/applet\/redpoint|resniche\/position\/play\/new\/get) data="https://raw.githubusercontent.com/Keywos/rule/main/mocks/blank_dict.json"
+
+^https?:\/\/interface3?\.music\.163.com\/eapi\/(comment\/feed\/inserted|v\d\/content\/exposure\/comment\/banner|link\/(position\/show\/(strategy|resource)|scene\/show)|comment\/hotcomment\/collect|vipcenter\/tspopup\/get|mlivestream\/entrance\/playpage|vipauth\/app\/auth|music-vip-membership\/client\/vip\/info) data="https://raw.githubusercontent.com/Keywos/rule/main/mocks/blank_dict.json"
+
+^https?:\/\/interface3?\.music\.163.com\/w?e?api\/(search\/(chart|default|rcmd\/keyword|specialkeyword)|(resource-exposure\/|middle\/clientcfg\/config)|activity\/bonus\/playpage\/time\/query) data="https://raw.githubusercontent.com/Keywos/rule/main/mocks/blank_dict.json"
 [Rule]
 DOMAIN,httpdns.n.netease.com,REJECT
 [Script]
 http-request ^https?:\/\/.+music.+(player\/url|playlist|entrance|\/eapi\/search\/).*$ script-path= https://raw.githubusercontent.com/qiuxiuya/qiuxiuya/main/Loon/wyy.js, timeout=60
 
 [MITM]
-hostname = %APPEND% *.music.163.com:0
+hostname = %APPEND% *.music.163.com:0,112.13.*, 59.111.*, interface*.music.163.com:0, httpdns.n.netease.com
