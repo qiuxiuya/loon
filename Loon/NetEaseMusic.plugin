@@ -15,16 +15,37 @@ DOMAIN, iadmusicmatvideo.music.126.net, REJECT
 DOMAIN-SUFFIX, 163jiasu.com, REJECT
 
 [Rewrite]
-#开屏广告｜开屏歌曲热评｜搜索页下方横幅广告
-^https?:\/\/interface3?\.music\.163\.com\/eapi\/ad reject-dict
+# 开屏广告、首页顶部横幅广告
+^https?:\/\/interface3?\.music\.163.com\/eapi\/ad\/.* reject-dict
 
-#播放页歌名下方∶乐迷团｜关注｜播放页提示｜音乐应用红点｜播放提示?
-^https?:\/\/interface3?\.music\.163\.com\/eapi\/(community\/friends\/fans-group\/artist\/group\/get|user\/sub\/artist|music\/songshare\/text\/recommend\/get|mine\/applet\/redpoint|resniche\/position\/play\/new\/get) reject-dict
+# 搜索页、填充词、排行榜
+^https?:\/\/interface3?\.music\.163.com\/eapi\/search\/(chart\/(detail|list)$|default\/keyword\/list\?|rcmd\/keyword\/get\/v2$|specialkeyword\/get\?) reject-dict
 
-#评论区插入广告｜回复广告｜首页右上角免或vip图标｜播放页的各种小提示｜评论右上角热评馆｜播放页正在试听弹窗｜播放页右上角live或直播图标入口｜首次登录黑胶过期弹窗   new resource
-^https?:\/\/interface3?\.music\.163.com\/eapi\/(comment\/feed\/inserted|v\d\/content\/exposure\/comment\/banner|link\/(position\/show\/(strategy|resource)|scene\/show)|comment\/hotcomment\/collect|vipcenter\/tspopup\/get|mlivestream\/entrance\/playpage|vipauth\/app\/auth|music-vip-membership\/client\/vip\/info) reject-dict
+# 播放页、多余图标、各种小提示、高品质音乐试用弹窗
+^https:\/\/interface3\.music\.163\.com\/eapi\/(link\/position\/show\/(resource|strategy)|music\/songshare\/text\/recommend\/get)\? reject-dict
+^https:\/\/interface3\.music\.163\.com\/eapi\/(mlivestream\/entrance\/playpage\/v7|community\/friends\/fans-group\/artist\/group)\/get\? reject-dict
+^https:\/\/interface3\.music\.163\.com\/eapi\/mlog\/vinyl\/story\/list\? reject-dict
+^https:\/\/interface3\.music\.163\.com\/eapi\/(user\/sub\/artist\/exist|vipcenter\/tspopup\/get)\? reject-dict
+^https:\/\/interface3\.music\.163\.com\/eapi\/zone\/songplay\/entry\/get\? reject-dict
+^https?:\/\/interface3\.music\.163\.com\/eapi\/resniche\/position\/play\/new\/get\? reject-dict
 
-# 搜索页热搜卡片｜猜你喜欢｜我的应用下方提醒
-^https?:\/\/interface3?\.music\.163.com\/w?e?api\/(search\/(chart|default|rcmd\/keyword|specialkeyword)|(resource-exposure\/|middle\/clientcfg\/config)|activity\/bonus\/playpage\/time\/query) reject-dict
+# 评论页、回复广告、星评馆
+^https?:\/\/interface3\.music\.163\.com\/eapi\/comment\/(hotcomment\/collect\/fetchmodelinfov2|feed\/inserted\/resources|tips\/v2\/get)\? reject-dict
+^https?:\/\/interface3\.music\.163\.com\/eapi\/v1\/content\/exposure\/comment\/banner\/get\? reject-dict
+
+# 首页、右上角多余图标、会员续费弹窗、侧边栏推广
+^https:\/\/interface3\.music\.163\.com\/eapi\/(homepage\/banner\/ad\/get|link\/scene\/show\/resource)\? reject-dict
+^https:\/\/interface3\.music\.163\.com\/eapi\/(music-vip-membership\/client\/vip\/info|vipauth\/app\/auth\/recycle)\? reject-dict
+^https:\/\/interface3\.music\.163\.com\/eapi\/(side-bar\/mini-program\/music-service\/account|delivery\/batch-deliver)\? reject-dict
+
+# 我的页面、小部件红点
+^https:\/\/interface3\.music\.163\.com\/eapi\/mine\/applet\/redpoint\? reject-dict
+
+# 播客、弹出广告
+^https:\/\/interface3\.music\.163\.com\/eapi\/voice\/play\/page\/ad\/info\? reject-dict
+
+# 歌单页、横幅广告
+^https:\/\/interface\.music\.163\.com\/weapi\/middle\/clientcfg\/config\/list\? reject-dict
+^https:\/\/interface3?\.music\.163\.com\/w?eapi\/resource-exposure\/(activity\/config\/get|config)\? reject-dict
 [MITM]
 hostname = *.music.163.com,112.13.*, 59.111.*
