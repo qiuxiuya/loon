@@ -7,38 +7,7 @@ force-http-engine-hosts = %APPEND% 59.111.*:0
 
 [URL Rewrite]
 ^https?:\/\/httpdns.n.netease.com\/ - reject
-# 开屏广告、首页顶部横幅广告
-^https?:\/\/interface3?\.music\.163.com\/eapi\/ad\/.* reject
 
-# 搜索页、填充词、排行榜
-^https?:\/\/interface3?\.music\.163.com\/eapi\/search\/(chart\/(detail|list)$|default\/keyword\/list\?|rcmd\/keyword\/get\/v2$|specialkeyword\/get\?) reject
-
-# 播放页、多余图标、各种小提示、高品质音乐试用弹窗
-^https:\/\/interface3\.music\.163\.com\/eapi\/(link\/position\/show\/(resource|strategy)|music\/songshare\/text\/recommend\/get)\? reject
-^https:\/\/interface3\.music\.163\.com\/eapi\/(mlivestream\/entrance\/playpage\/v7|community\/friends\/fans-group\/artist\/group)\/get\? reject
-^https:\/\/interface3\.music\.163\.com\/eapi\/mlog\/vinyl\/story\/list\? reject
-^https:\/\/interface3\.music\.163\.com\/eapi\/(user\/sub\/artist\/exist|vipcenter\/tspopup\/get)\? reject
-^https:\/\/interface3\.music\.163\.com\/eapi\/zone\/songplay\/entry\/get\? reject
-^https?:\/\/interface3\.music\.163\.com\/eapi\/resniche\/position\/play\/new\/get\? reject
-
-# 评论页、回复广告、星评馆
-^https?:\/\/interface3\.music\.163\.com\/eapi\/comment\/(hotcomment\/collect\/fetchmodelinfov2|feed\/inserted\/resources|tips\/v2\/get)\? reject
-^https?:\/\/interface3\.music\.163\.com\/eapi\/v1\/content\/exposure\/comment\/banner\/get\? reject
-
-# 首页、右上角多余图标、会员续费弹窗、侧边栏推广
-^https:\/\/interface3\.music\.163\.com\/eapi\/(homepage\/banner\/ad\/get|link\/scene\/show\/resource)\? reject
-^https:\/\/interface3\.music\.163\.com\/eapi\/(music-vip-membership\/client\/vip\/info|vipauth\/app\/auth\/recycle)\? reject
-^https:\/\/interface3\.music\.163\.com\/eapi\/(side-bar\/mini-program\/music-service\/account|delivery\/batch-deliver)\? reject
-
-# 我的页面、小部件红点
-^https:\/\/interface3\.music\.163\.com\/eapi\/mine\/applet\/redpoint\? reject
-
-# 播客、弹出广告
-^https:\/\/interface3\.music\.163\.com\/eapi\/voice\/play\/page\/ad\/info\? reject
-
-# 歌单页、横幅广告
-^https:\/\/interface\.music\.163\.com\/weapi\/middle\/clientcfg\/config\/list\? reject
-^https:\/\/interface3?\.music\.163\.com\/w?eapi\/resource-exposure\/(activity\/config\/get|config)\? reject
 [Rule]
 DOMAIN,iadmusicmat.music.126.net,REJECT-NO-DROP
 DOMAIN,iadmat.nosdn.127.net,REJECT-NO-DROP
@@ -62,4 +31,4 @@ DOMAIN,httpdns.n.netease.com,REJECT
 http-request ^https?:\/\/.+music.+(player\/url|playlist|entrance|\/eapi\/search\/).*$ script-path= https://raw.githubusercontent.com/qiuxiuya/qiuxiuya/main/Loon/wyy.js, timeout=60
 
 [MITM]
-hostname = %APPEND% *.music.163.com:0,112.13.*, 59.111.*,httpdns.n.netease.com
+hostname = %APPEND% *.music.163.com:0,112.13.*, 59.111.*, interface*.music.163.com:0, httpdns.n.netease.com
