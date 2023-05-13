@@ -78,7 +78,6 @@ rules:
 - RULE-SET,Antiad,REJECT
 - RULE-SET,ChinaIP,DIRECT
 - RULE-SET,GFW,Global
-- GEOIP,LAN,DIRECT
 - GEOIP,CN,DIRECT
 - MATCH,Global
 script:
