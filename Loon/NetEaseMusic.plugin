@@ -1,6 +1,6 @@
 #!name=解锁网易云黑胶音乐试听
 #!desc=副作用：会导致无法添加歌单（但不影响添加收藏）
-#!author= qiuxiuya Keywos RuCu6 kokoryh LimeAroma我要的是这个
+#!author= qiuxiuya Keywos RuCu6 kokoryh LimeAroma
 #!icon= https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Netease_Music_Unlock.png
 [General]
 force-http-engine-hosts = 59.111.*:0
