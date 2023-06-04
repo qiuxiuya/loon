@@ -1,0 +1,154 @@
+mixed-port: 7890
+
+tun:
+    enable: true
+    stack: system
+    dns-hijack:
+        - any:53
+    auto-route: true
+    auto-detect-interface: true
+
+allow-lan: true
+mode: rule
+log-level: info
+ipv6: false
+udp: true
+profile:
+  store-fake-ip: true
+external-controller: 0.0.0.0:9090
+secret: ""
+
+dns:
+    enable: true
+    ipv6: true
+    enhanced-mode: fake-ip
+    fake-ip-filter:
+        - 'connect.rom.miui.com'
+        - 'localhost.ptlogin2.qq.com'
+        - '+.msftnsci.com'
+        - '+.msftconnecttest.com'
+        - '+.gstatic.com'
+        - '+.stun.*.*'
+        - '+.stun.*.*.*'
+        - '+.stun.*.*.*.*'
+        - '+.time.*'
+        - '+.time.*.*'
+        - '+.time.*.*.*'
+        - '+.ntp.*'
+        - '+.ntp.*.*'
+        - '+.ntp.*.*.*'
+    default-nameserver:
+        - 223.5.5.5
+    nameserver:
+        - https://dns.alidns.com/dns-query
+    fallback:
+        - https://dns.adguard.com/dns-query
+        - https://dns.google/dns-query
+        - https://cloudflare-dns.com/dns-query
+    fallback-filter:
+        geoip: true
+        geoip-code: CN
+
+proxies:
+
+p: &p
+  type: http
+  interval: 3600
+  health-check:
+    enable: true
+    url: http://www.gstatic.com/generate_204
+    interval: 300
+
+c: &c
+  type: http
+  behavior: classical
+  interval: 86400
+
+pr: &pr
+  type: select
+  proxies:
+    -Global
+    - HK
+    - TW
+    - JP
+    - SG
+    - Proxy
+
+proxy-providers:
+  Proxy: &Proxy
+    <<: *p
+    url: "机场订阅"
+    path: ./proxy_providers/Proxy.yaml
+  hk:
+    <<: *Proxy
+    filter: "港|香港|hk|HK|hongkong|HongKong"
+
+  tw:
+    <<: *Proxy
+    filter: "台|台湾|tw|TW|taiwan|Taiwan"
+  
+  jp:
+    <<: *Proxy
+    filter: "日|日本|jp|JP|japan|Japan"
+  
+  sg:
+    <<: *Proxy
+    filter: "新|新加坡|狮城|sg|SG|singapore"
+
+proxy-groups:
+
+  - name: Global
+    type: select
+    proxies:
+      - HK
+      - TW
+      - JP
+      - SG
+      - Proxy
+      
+
+  - name: HK
+    type: select
+    use:
+      - hk
+
+  - name: TW
+    type: select
+    use:
+      - tw
+
+  - name: JP
+    type: select
+    use:
+      - jp
+
+  - name: SG
+    type: select
+    use:
+      - sg
+
+  - name: Proxy
+    type: select
+    use:
+      - Proxy
+
+rule-providers:
+  AD:
+    type: http
+    behavior: domain
+    interval: 86400
+    path: ./ruleset/AD.yaml
+    url: https://anti-ad.net/clash.yaml
+  GFW:
+    type: http
+    behavior: classical
+    interval: 86400
+    path: ./ruleset/GFWyaml
+    url: https://ghproxy.com/https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/ProxyGFWlist.yaml
+
+
+rules:
+  - RULE-SET,AD,REJECT
+  - RULE-SET,GFW,Global
+  - GEOIP,CN,DIRECT
+  - MATCH,Global
