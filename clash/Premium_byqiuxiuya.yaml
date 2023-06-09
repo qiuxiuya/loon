@@ -77,7 +77,7 @@ pr: &pr
 proxy-providers:
   Proxy: &Proxy
     <<: *p
-    url: "机场订阅"
+    url: "https://api.nexconvert.com/sub?target=clash&url=机场订阅&insert=false&config=https%3A%2F%2Fcdn.jsdelivr.net%2Fgh%2FSleepyHeeead%2Fsubconverter-config%40master%2Fremote-config%2Funiversal%2Fno-urltest.ini&emoji=true&list=true&tfo=false&scv=false&fdn=false&sort=false&new_name=true"
     path: ./proxy_providers/Proxy.yaml
   hk:
     <<: *Proxy
@@ -138,7 +138,7 @@ rule-providers:
     behavior: domain
     interval: 86400
     path: ./ruleset/AD.yaml
-    url: https://anti-ad.net/clash.yaml
+    url: https://anti-ad.net/antiad.yaml
   GFW:
     type: http
     behavior: classical
