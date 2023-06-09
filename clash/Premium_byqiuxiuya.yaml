@@ -77,7 +77,7 @@ pr: &pr
 proxy-providers:
   Proxy: &Proxy
     <<: *p
-    url: "https://api.nexconvert.com/sub?target=clash&url=填入机场订阅地址&insert=false&config=https%3A%2F%2Fcdn.jsdelivr.net%2Fgh%2FSleepyHeeead%2Fsubconverter-config%40master%2Fremote-config%2Funiversal%2Fno-urltest.ini&include=(%3Fi)%F0%9F%87%AD%F0%9F%87%B0%7C%E9%A6%99%E6%B8%AF%7C(%5Cb(HK%7CHong)%5Cb)%7C%F0%9F%87%B9%F0%9F%87%BC%7C%E5%8F%B0%E6%B9%BE%7C(%5Cb(TW%7CTai%7CTaiwan)%5Cb)%7C%F0%9F%87%AF%F0%9F%87%B5%7C%E6%97%A5%E6%9C%AC%7C%E5%B7%9D%E6%97%A5%7C%E4%B8%9C%E4%BA%AC%7C%E5%A4%A7%E9%98%AA%7C%E6%B3%89%E6%97%A5%7C%E5%9F%BC%E7%8E%89%7C(%5Cb(JP%7CJapan)%5Cb)%7C%F0%9F%87%B8%F0%9F%87%AC%7C%E6%96%B0%E5%8A%A0%E5%9D%A1%7C%E7%8B%AE%7C(%5Cb(SG%7CSingapore)%5Cb)&emoji=true&list=true&tfo=false&scv=false&fdn=false&sort=false&new_name=true"
+    url: "https://api.nexconvert.com/sub?target=clash&url=AAAAAAAAAAAAAAAAAAAAAAAAAAA&insert=false&config=https%3A%2F%2Fcdn.jsdelivr.net%2Fgh%2FSleepyHeeead%2Fsubconverter-config%40master%2Fremote-config%2Funiversal%2Fno-urltest.ini&include=(%3Fi)%F0%9F%87%AD%F0%9F%87%B0%7C%E9%A6%99%E6%B8%AF%7C(%5Cb(HK%7CHong)%5Cb)%7C%F0%9F%87%B9%F0%9F%87%BC%7C%E5%8F%B0%E6%B9%BE%7C(%5Cb(TW%7CTai%7CTaiwan)%5Cb)%7C%F0%9F%87%AF%F0%9F%87%B5%7C%E6%97%A5%E6%9C%AC%7C%E5%B7%9D%E6%97%A5%7C%E4%B8%9C%E4%BA%AC%7C%E5%A4%A7%E9%98%AA%7C%E6%B3%89%E6%97%A5%7C%E5%9F%BC%E7%8E%89%7C(%5Cb(JP%7CJapan)%5Cb)%7C%F0%9F%87%B8%F0%9F%87%AC%7C%E6%96%B0%E5%8A%A0%E5%9D%A1%7C%E7%8B%AE%7C(%5Cb(SG%7CSingapore)%5Cb)&emoji=true&list=true&tfo=false&scv=false&fdn=false&sort=true&udp=true&new_name=truee"
     path: ./proxy_providers/Proxy.yaml
   hk:
     <<: *Proxy
