@@ -104,7 +104,7 @@ proxy-groups:
     use:
       - zx
     proxies:
-      - HK
+      - Global
 
   - name: HK
     type: select
