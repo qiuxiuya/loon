@@ -63,11 +63,11 @@ c: &c
 proxy-providers:
   Proxy: &Proxy
     <<: *p
-    url: "https://api.nexconvert.com/sub?target=clash&url=https://api.nexconvert.com/sub?target=clash&url=填入你的机场订阅&insert=false&emoji=true&list=true&tfo=false&scv=false&fdn=false&sort=true&udp=true&new_name=true"
+    url: "https://sub.xeton.dev/sub?target=clash&new_name=true&url=填入机场订阅&insert=false&emoji=true&list=true&tfo=false&scv=false&fdn=false&sort=true&udp=true"
     path: ./proxy_providers/Proxy1.yaml"
   Proxy2: &Proxy2
     <<: *p
-    url: "https://api.nexconvert.com/sub?target=clash&url=https://api.nexconvert.com/sub?target=clash&url=填入你的机场订阅&insert=false&exclude=(x)&emoji=true&list=true&tfo=false&scv=false&fdn=false&sort=true&udp=true&new_name=true"
+    url: "https://sub.xeton.dev/sub?target=clash&new_name=true&url=填入机场订阅&insert=false&exclude=x&emoji=true&list=true&tfo=false&scv=false&fdn=false&sort=true&udp=true"
     path: ./proxy_providers/Proxy2.yaml"
   hk:
     <<: *Proxy2
