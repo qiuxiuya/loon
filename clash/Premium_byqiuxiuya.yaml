@@ -64,11 +64,11 @@ proxy-providers:
   Proxy: &Proxy
     <<: *p
     url: "https://api.nexconvert.com/sub?target=clash&url=填入你的机场订阅&insert=false&emoji=true&list=true&tfo=false&scv=false&fdn=false&sort=true&udp=true&new_name=true"
-    path: ./proxy_providers/Proxy.yaml"
+    path: ./proxy_providers/Proxy1.yaml"
   Proxy2: &Proxy2
     <<: *p
     url: "https://api.nexconvert.com/sub?target=clash&url=填入你的机场订阅&insert=false&exclude=(x)&emoji=true&list=true&tfo=false&scv=false&fdn=false&sort=true&udp=true&new_name=true"
-
+    path: ./proxy_providers/Proxy2.yaml"
   hk:
     <<: *Proxy2
     filter: "(?i)🇭🇰|香港|(\b(HK|Hong)\b)"
@@ -107,22 +107,22 @@ proxy-groups:
       - HK
 
   - name: HK
-    type: select
+    type: url-test
     use:
       - hk
 
   - name: TW
-    type: select
+    type: url-test
     use:
       - tw
 
   - name: JP
-    type: select
+    type: url-test
     use:
       - jp
 
   - name: SG
-    type: select
+    type: url-test
     use:
       - sg
 
