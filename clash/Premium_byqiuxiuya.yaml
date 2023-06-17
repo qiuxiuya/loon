@@ -63,11 +63,11 @@ c: &c
 proxy-providers:
   Proxy: &Proxy
     <<: *p
-    url: "https://api.nexconvert.com/sub?target=clash&url=填入你的机场订阅&insert=false&emoji=true&list=true&tfo=false&scv=false&fdn=false&sort=true&udp=true&new_name=true"
+    url: "https://api.nexconvert.com/sub?target=clash&url=https://api.nexconvert.com/sub?target=clash&url=填入你的机场订阅&insert=false&emoji=true&list=true&tfo=false&scv=false&fdn=false&sort=true&udp=true&new_name=true"
     path: ./proxy_providers/Proxy1.yaml"
   Proxy2: &Proxy2
     <<: *p
-    url: "https://api.nexconvert.com/sub?target=clash&url=填入你的机场订阅&insert=false&exclude=(x)&emoji=true&list=true&tfo=false&scv=false&fdn=false&sort=true&udp=true&new_name=true"
+    url: "https://api.nexconvert.com/sub?target=clash&url=https://api.nexconvert.com/sub?target=clash&url=填入你的机场订阅&insert=false&exclude=(x)&emoji=true&list=true&tfo=false&scv=false&fdn=false&sort=true&udp=true&new_name=true"
     path: ./proxy_providers/Proxy2.yaml"
   hk:
     <<: *Proxy2
@@ -107,29 +107,69 @@ proxy-groups:
       - HK
 
   - name: HK
-    type: url-test
+    type: select
     use:
       - hk
+    proxies:
+      - auto HK
 
   - name: TW
-    type: url-test
+    type: select
     use:
       - tw
+    proxies:
+      - auto TW
 
   - name: JP
-    type: url-test
+    type: select
     use:
       - jp
+    proxies:
+      - auto JP
 
   - name: SG
-    type: url-test
+    type: select
     use:
       - sg
+    proxies:
+      - auto SG
 
   - name: Proxy
     type: select
     use:
       - Proxy
+
+  - name: auto HK
+    type: url-test
+    url: 'http://www.gstatic.com/generate_204'
+    nterval: 600
+    tolerance: 30
+    use:
+      - hk
+
+  - name: auto TW
+    type: url-test
+    url: 'http://www.gstatic.com/generate_204'
+    nterval: 600
+    tolerance: 30
+    use:
+      - tw
+
+  - name: auto JP
+    type: url-test
+    url: 'http://www.gstatic.com/generate_204'
+    nterval: 600
+    tolerance: 30
+    use:
+      - jp
+
+  - name: auto SG
+    type: url-test
+    url: 'http://www.gstatic.com/generate_204'
+    nterval: 600
+    tolerance: 30
+    use:
+      - sg
 
 rules:
   # MyList && Other
@@ -374,7 +414,7 @@ rules:
   - DOMAIN-SUFFIX,afr.com,Global
   - DOMAIN-SUFFIX,afreecatv.com,Global
   - DOMAIN-SUFFIX,agnesb.fr,Global
-  - DOMAIN-SUFFIX,agoogleaday.com,Global
+  - DOMAIN-SUFFIX,agoogle1 天之前.com,Global
   - DOMAIN-SUFFIX,agro.hk,Global
   - DOMAIN-SUFFIX,ai-kan.net,Global
   - DOMAIN-SUFFIX,ai-wen.net,Global
