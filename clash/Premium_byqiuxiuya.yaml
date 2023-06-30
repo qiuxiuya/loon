@@ -172,11 +172,11 @@ c: &c
 proxy-providers:
   Proxy: &Proxy
     <<: *p
-    url: "https://api.dler.io/sub?target=clash&new_name=true&url=填入机场订阅&insert=false&emoji=false&list=true&tfo=false&scv=false&fdn=false&sort=true&udp=true"
+    url: "https://api.dler.io/sub?target=clash&url=填入机场订阅&emoji=false&list=true&udp=true&tfo=false&scv=false&fdn=false&sort=true"
     path: ./proxy_providers/Proxy1.yaml
   Proxy2: &Proxy2
     <<: *p
-    url: "https://api.dler.io/sub?target=clash&new_name=true&url=填入机场订阅&insert=false&exclude=x&emoji=false&list=true&tfo=false&scv=false&fdn=false&sort=true&udp=true"
+    url: "https://api.dler.io/sub?target=clash&url=填入机场订阅&exclude=x&emoji=false&list=true&udp=true&tfo=false&scv=false&fdn=false&sort=true"
     path: ./proxy_providers/Proxy2.yaml
   hk:
     <<: *Proxy2
