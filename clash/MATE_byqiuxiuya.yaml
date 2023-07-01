@@ -175,11 +175,11 @@ c: &c
 proxy-providers:
   Proxy: &Proxy
     <<: *p
-    url: "https://api.dler.io/sub?target=clash&url=https://sb.meslcloud.com/api/v1/client/subscribe?token=3d3d44c953835a14f091abede1682d41&emoji=false&list=true&udp=true&tfo=false&scv=false&fdn=false&sort=true"
+    url: "https://api.dler.io/sub?target=clash&url=订阅链接&emoji=false&list=true&udp=true&tfo=false&scv=false&fdn=false&sort=true"
     path: ./proxy_providers/Proxy1.yaml
   Proxy2: &Proxy2
     <<: *p
-    url: "https://api.dler.io/sub?target=clash&url=https://sb.meslcloud.com/api/v1/client/subscribe?token=3d3d44c953835a14f091abede1682d41&exclude=x&emoji=false&list=true&udp=true&tfo=false&scv=false&fdn=false&sort=true"
+    url: "https://api.dler.io/sub?target=clash&url=订阅链接&exclude=x&emoji=false&list=true&udp=true&tfo=false&scv=false&fdn=false&sort=true"
     path: ./proxy_providers/Proxy2.yaml
   hk:
     <<: *Proxy2
