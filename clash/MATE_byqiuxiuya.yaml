@@ -264,7 +264,7 @@ proxy-groups:
       - jp
 
 rules:
-  - GEOIP,telegram,DIRECT
+  - GEOIP,telegram,TG
   - GEOSITE,CN,DIRECT
   - GEOIP,CN,DIRECT
   - MATCH,Global
