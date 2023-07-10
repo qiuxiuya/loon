@@ -953,5 +953,5 @@ rules:
  - DOMAIN-SUFFIX,zhimg.com,DIRECT
  - DOMAIN-SUFFIX,zhongsou.com,DIRECT
  - DOMAIN-SUFFIX,zhuihd.com,DIRECT
-  - GEOIP,CN,DIRECT
-  - MATCH,Global
+ - GEOIP,CN,DIRECT
+ - MATCH,Global
