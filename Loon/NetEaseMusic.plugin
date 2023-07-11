@@ -1,5 +1,5 @@
 #!name=解锁网易云黑胶音乐试听
-#!desc=副作用：会导致无法添加歌单（但不影响添加收藏）
+#!desc=副作用：会导致无法添加歌单（但不影响添加收藏）请不要修改策略组指向(要改的话改成DIRECT)，和网易云解灰冲突
 #!author= qiuxiuya
 #!homepage=https://t.me/zdqiuxiuya
 #!icon= https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Netease_Music_Unlock.png
