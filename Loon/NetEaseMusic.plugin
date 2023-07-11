@@ -3,6 +3,8 @@
 #!author= qiuxiuya TEXAS Keywos
 #!homepage=https://t.me/zdqiuxiuya
 #!icon= https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Netease_Music_Unlock.png
+[Proxy]
+NetEaseUnlock = shadowsocks,101.132.192.212,30001,aes-128-gcm,"desperadoj.com_free_proxy_etg0",fast-open=false,udp=false
 [Script]
 #解锁黑椒音乐
 http-request ^https?:\/\/.+music\.163\.com\/.*(player\/url|entrance|\/eapi\/search\/) script-path= https://raw.githubusercontent.com/qiuxiuya/qiuxiuya/main/Loon/wyy.js, timeout=60
