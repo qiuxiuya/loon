@@ -1,5 +1,5 @@
 #!name=解锁网易云黑胶音乐试听
-#!desc=解锁黑椒音乐试听限制，会导致音乐无法添加歌单和雷达歌单内容被替换，建议和解灰共同使用(使用解灰时关闭本插件，解锁时长限制打开本插件)，插件代理不要修改或改成DIRECT
+#!desc=会导致音乐无法添加歌单和雷达歌单内容被替换，建议和解灰共同使用(使用解灰时关闭本插件，解锁时长限制打开本插件)，插件代理不要修改或改成DIRECT
 #!author= qiuxiuya
 #!homepage=https://t.me/zdqiuxiuya
 #!icon= https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Netease_Music_Unlock.png
