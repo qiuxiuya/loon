@@ -1,6 +1,7 @@
 #!name=解锁网易云黑胶音乐试听
 #!desc=副作用：会导致无法添加歌单（但不影响添加收藏）
-#!author= qiuxiuya Keywos RuCu6 kokoryh LimeAroma
+#!author= qiuxiuya
+#!homepage=https://t.me/zdqiuxiuya
 #!icon= https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Netease_Music_Unlock.png
 [Script]
 http-request ^http[s]?:\/\/.+music.+(player\/url|playlist|entrance|\/eapi\/search\/).*$ script-path= https://raw.githubusercontent.com/qiuxiuya/qiuxiuya/main/Loon/wyy.js, timeout=60
