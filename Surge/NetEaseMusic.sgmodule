@@ -1,34 +1,78 @@
 #!name=解锁网易云黑胶音乐试听
-#!desc=副作用：会导致无法添加歌单（但不影响添加收藏）
-#!author= qiuxiuya 技术指导：Key佬（我是key佬铁粉！！）  问题修复：整点猫咪🐈
-#!system=ios
-[General]
-force-http-engine-hosts = %APPEND% 59.111.*:0
+#!desc=在TEXAS的帮助下（指全是他写的😘），解决添加歌单问题，此版本整合了key佬的去广告
+#!author= qiuxiuya TEXAS Keywos
+#!homepage=https://t.me/zdqiuxiuya
+#!icon= https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Netease_Music_Unlock.png
+[Script]
+
+#解锁黑椒音乐
+http-request ^https?:\/\/.+music\.163\.com\/.*(player\/url|entrance|\/eapi\/search\/) script-path= https://raw.githubusercontent.com/qiuxiuya/qiuxiuya/main/Loon/wyy.js, timeout=60
+
+[Rule]
+
+DOMAIN, gdt.qq.com, REJECT
+DOMAIN, httpdns.n.netease.com, REJECT
+DOMAIN, iadmat.nosdn.127.net, REJECT
+DOMAIN, iadmusicmat.music.126.net, REJECT
+DOMAIN, iadmusicmatvideo.music.126.net, REJECT
+DOMAIN-SUFFIX, 163jiasu.com, REJECT
 
 [URL Rewrite]
-^https?:\/\/httpdns.n.netease.com\/ - reject
 
-[Rule]
-DOMAIN,iadmusicmat.music.126.net,REJECT-NO-DROP
-DOMAIN,iadmat.nosdn.127.net,REJECT-NO-DROP
-DOMAIN,iadmatapk.nosdn.127.net,REJECT-NO-DROP
-DOMAIN,iadmusicmatvideo.music.126.net,REJECT-NO-DROP
-DOMAIN,httpdns.n.netease.com,REJECT-NO-DROP
-DOMAIN,gdt.qq.com,REJECT-NO-DROP
-DOMAIN-SUFFIX,163jiasu.com,REJECT-NO-DROP
+# 开屏广告,首页顶部横幅广告
+^https?:\/\/interface3?\.music\.163.com\/eapi\/ad - reject-dict
 
-[Map Local]
-^https?:\/\/interface3?\.music\.163\.com\/eapi\/ad data="https://raw.githubusercontent.com/Keywos/rule/main/mocks/blank_dict.json"
+# 搜索页,填充词,排行榜
+^https?:\/\/interface3?\.music\.163.com\/eapi\/search\/(chart\/(detail|list)$|default\/keyword\/list\?|rcmd\/keyword\/get\/v2$|specialkeyword\/get\?) - reject-dict
 
-^https?:\/\/interface3?\.music\.163\.com\/eapi\/(community\/friends\/fans-group\/artist\/group\/get|user\/sub\/artist|music\/songshare\/text\/recommend\/get|mine\/applet\/redpoint|resniche\/position\/play\/new\/get) data="https://raw.githubusercontent.com/Keywos/rule/main/mocks/blank_dict.json"
+# 播放页,多余图标,各种小提示,高品质音乐试用弹窗
+^https?:\/\/interface3\.music\.163\.com\/eapi\/(link\/position\/show\/(resource|strategy)|music\/songshare\/text\/recommend\/get)\? - reject-dict
 
-^https?:\/\/interface3?\.music\.163.com\/eapi\/(comment\/feed\/inserted|v\d\/content\/exposure\/comment\/banner|link\/(position\/show\/(strategy|resource)|scene\/show)|comment\/hotcomment\/collect|vipcenter\/tspopup\/get|mlivestream\/entrance\/playpage|vipauth\/app\/auth|music-vip-membership\/client\/vip\/info) data="https://raw.githubusercontent.com/Keywos/rule/main/mocks/blank_dict.json"
+^https?:\/\/interface3\.music\.163\.com\/eapi\/(mlivestream\/entrance\/playpage\/v7|community\/friends\/fans-group\/artist\/group)\/get\? - reject-dict
 
-^https?:\/\/interface3?\.music\.163.com\/w?e?api\/(search\/(chart|default|rcmd\/keyword|specialkeyword)|(resource-exposure\/|middle\/clientcfg\/config)|activity\/bonus\/playpage\/time\/query) data="https://raw.githubusercontent.com/Keywos/rule/main/mocks/blank_dict.json"
-[Rule]
-DOMAIN,httpdns.n.netease.com,REJECT
-[Script]
-http-request ^https?:\/\/.+music.+(player\/url|playlist|entrance|\/eapi\/search\/).*$ script-path= https://raw.githubusercontent.com/qiuxiuya/qiuxiuya/main/Loon/wyy.js, timeout=60
+^https?:\/\/interface3\.music\.163\.com\/eapi\/mlog\/vinyl\/story\/list\? - reject-dict
 
+^https?:\/\/interface3\.music\.163\.com\/eapi\/(user\/sub\/artist\/exist|vipcenter\/tspopup\/get)\? - reject-dict
+
+^https?:\/\/interface3\.music\.163\.com\/eapi\/zone\/songplay\/entry\/get\? - reject-dict
+
+^https?:\/\/interface3\.music\.163\.com\/eapi\/resniche\/position\/play\/new\/get\? - reject-dict
+
+# 评论页,插入广告,回复广告,星评馆
+^https?:\/\/interface3\.music\.163\.com\/eapi\/comment\/(hotcomment\/collect\/fetchmodelinfov2|feed\/inserted\/resources|tips\/v2\/get)\? - reject-dict
+
+^https?:\/\/interface3\.music\.163\.com\/eapi\/v1\/content\/exposure\/comment\/banner\/get\? - reject-dict
+
+# 首页,右上角多余图标,会员续费弹窗,侧边栏推广
+^https?:\/\/interface3\.music\.163\.com\/eapi\/event\/floating\/layer\? url - reject-dict
+
+^https?:\/\/interface3\.music\.163\.com\/eapi\/(homepage\/banner\/ad\/get|link\/scene\/show\/resource)\? - reject-dict
+
+^https?:\/\/interface3\.music\.163\.com\/eapi\/(music-vip-membership\/client\/vip\/info|vipauth\/app\/auth\/recycle)\? - reject-dict
+
+^https?:\/\/interface3\.music\.163\.com\/eapi\/(side-bar\/mini-program\/music-service\/account|delivery\/batch-deliver)\? - reject-dict
+
+# 我的页面,小部件红点
+^https?:\/\/interface3\.music\.163\.com\/eapi\/mine\/applet\/redpoint\? - reject-dict
+
+# 播客,弹出广告
+^https?:\/\/interface3\.music\.163\.com\/eapi\/voice\/play\/page\/ad\/info\? - reject-dict
+
+# 歌单页,横幅广告
+^https?:\/\/interface\.music\.163\.com\/weapi\/middle\/clientcfg\/config\/list\? - reject-dict
+
+^https?:\/\/interface3?\.music\.163\.com\/w?eapi\/resource-exposure\/(activity\/config\/get|config)\? - reject-dict
+
+# 开屏广告,首页顶部横幅广告
+# 搜索页,填充词,排行榜
+# 播放页,多余图标,各种小提示,高品质音乐试用弹窗
+# 评论页,插入广告,回复广告,星评馆
+^https?:\/\/interface3\.music\.163\.com\/eapi\/batch\? header-replace-regex Cookie appver=\d\.\d\.\d\d appver=9999
+
+# 首页,右上角多余图标,会员续费弹窗,侧边栏推广
+# 我的页面,小部件红点
+# 播客,弹出广告
+# 歌单页,横幅广告
 [MITM]
-hostname = %APPEND% *.music.163.com:0,112.13.*, 59.111.*, interface*.music.163.com:0, httpdns.n.netease.com
+
+hostname = %APPEND% *.music.163.com
