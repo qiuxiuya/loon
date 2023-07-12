@@ -1,0 +1,1 @@
+NetEaseUnlock = ss, music.desperadoj.com, 30001, encrypt-method=aes-128-gcm, password=desperadoj.com_free_proxy_etg0, tfo=false, udp-relay=true
