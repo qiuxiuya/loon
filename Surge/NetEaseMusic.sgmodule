@@ -70,4 +70,4 @@ wyy_7 = type=http-request, pattern=^https?:\/\/.+music\.163\.com\/.*(player\/url
 
 [MITM]
 
-hostname = %APPEND% *.music.163.com
+hostname = %APPEND% *.music.163.com:0
