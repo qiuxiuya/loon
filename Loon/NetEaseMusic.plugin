@@ -49,4 +49,4 @@ DOMAIN-SUFFIX, 163jiasu.com, REJECT
 ^https?:\/\/interface\.music\.163\.com\/weapi\/middle\/clientcfg\/config\/list\? reject-dict
 ^https?:\/\/interface3?\.music\.163\.com\/w?eapi\/resource-exposure\/(activity\/config\/get|config)\? reject-dict
 [MITM]
-hostname = *.music.163.com
+hostname = interface*.music.163.com
