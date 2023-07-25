@@ -1,0 +1,96 @@
+#!name = Bilibili去广告
+#!desc = 过滤Bilibili广告、移除青少年模式弹窗和交互式弹幕、移除无用功能。此插件仅建议iOS 15以上设备使用，且必须启用MitM-over-HTTP/2功能。
+#!openUrl = 
+#!author = RuCu6 VirgilClyne Maasea ClydeTimea BiliUniverse kokoryh app2smile 
+#!homepage = https://gitlab.com/lodepuly/vpn_tool/-/tree/main/Tool/Loon/Plugin
+#!icon = https://gitlab.com/lodepuly/iconlibrary/-/raw/master/App_icon/120px/Bilibili.png
+
+[URL Rewrite]
+
+# 移除搜索中的默认关键词
+^https?:\/\/(grpc\.biliapi\.net|app\.bilibili\.com)\/bilibili\.app\.interface\.v1\.Search\/DefaultWords$ - reject
+# 屏蔽默认搜索框关键词
+^https:\/\/(grpc\.biliapi\.net|app\.bilibili\.com)\/bilibili\.app\.interface\.v1\.Search\/DefaultWords - reject
+# IP请求、地理位置请求 //api.bilibili.com
+^https:\/\/app\.bilibili\.com\/x\/resource\/ip - reject
+
+[Script]
+
+# 移除播放页面视频列表广告
+Bilibili_helper_beta_27 = type=http-response, pattern=^https:\/\/(grpc\.biliapi\.net|app\.bilibili\.com)\/bilibili\.app\.view\.v1\.View\/View$, script-path=https://gitlab.com/lodepuly/vpn_tool/-/raw/main/Resource/Script/Bilibili/Bilibili_helper_beta.js, requires-body=true, max-size=3145728, binary-body-mode=true, timeout=30
+
+# 移除搜索结果广告 - 待完善
+Bilibili_helper_beta_29 = type=http-response, pattern=^https:\/\/(grpc\.biliapi\.net|app\.bilibili\.com)\/bilibili\.polymer\.app\.search\.v1\.Search\/SearchAll$, script-path=https://gitlab.com/lodepuly/vpn_tool/-/raw/main/Resource/Script/Bilibili/Bilibili_helper_beta.js, requires-body=true, max-size=3145728, binary-body-mode=true, timeout=30
+
+# 移除评论区广告
+Bilibili_helper_beta_31 = type=http-response, pattern=^https:\/\/grpc\.biliapi\.net\/bilibili\.main\.community\.reply\.v1\.Reply\/MainList, script-path=https://gitlab.com/lodepuly/vpn_tool/-/raw/main/Resource/Script/Bilibili/Bilibili_helper_beta.js, requires-body=true, max-size=3145728, binary-body-mode=true, timeout=30
+
+# 移除动态页面广告 - 待完善
+Bilibili_helper_beta_33 = type=http-response, pattern=^https:\/\/(grpc\.biliapi\.net|app\.bilibili\.com)\/bilibili\.app\.dynamic\.v2\.Dynamic\/DynAll$, script-path=https://gitlab.com/lodepuly/vpn_tool/-/raw/main/Resource/Script/Bilibili/Bilibili_helper_beta.js, requires-body=true, max-size=3145728, binary-body-mode=true, timeout=30
+
+# 会员特效弹幕处理
+Bilibili_helper_beta_35 = type=http-response, pattern=^https:\/\/grpc\.biliapi\.net\/bilibili\.community\.service\.dm\.v1\.DM\/DmSegMobile, script-path=https://gitlab.com/lodepuly/vpn_tool/-/raw/main/Resource/Script/Bilibili/Bilibili_helper_beta.js, requires-body=true, max-size=3145728, binary-body-mode=true, timeout=30
+
+# 移除交互式弹幕
+Bilibili_helper_beta_37 = type=http-response, pattern=^https:\/\/grpc\.biliapi\.net\/bilibili\.community\.service\.dm\.v1\.DM\/DmView, script-path=https://gitlab.com/lodepuly/vpn_tool/-/raw/main/Resource/Script/Bilibili/Bilibili_helper_beta.js, requires-body=true, max-size=3145728, binary-body-mode=true, timeout=30
+
+# 移除青少年模式弹窗
+Bilibili_helper_beta_39 = type=http-response, pattern=^https:\/\/grpc\.biliapi\.net\/bilibili\.app\.interface\.v1\.Teenagers\/ModeStatus, script-path=https://gitlab.com/lodepuly/vpn_tool/-/raw/main/Resource/Script/Bilibili/Bilibili_helper_beta.js, requires-body=true, max-size=3145728, binary-body-mode=true, timeout=30
+
+# 移除开屏广告
+Bilibili_remove_ads_42 = type=http-response, pattern=^https:\/\/app\.bilibili\.com\/x\/v2\/splash\/(brand\/list|event\/list2|list|show)\?, script-path=https://gitlab.com/lodepuly/vpn_tool/-/raw/main/Resource/Script/Bilibili/Bilibili_remove_ads.js, requires-body=true, max-size=3145728, timeout=30
+
+# 移除首页推荐广告
+Bilibili_remove_ads_44 = type=http-response, pattern=^https:\/\/app\.bilibili\.com\/x\/v2\/feed\/index\?, script-path=https://gitlab.com/lodepuly/vpn_tool/-/raw/main/Resource/Script/Bilibili/Bilibili_remove_ads.js, requires-body=true, max-size=3145728, timeout=30
+
+# 移除右上角活动入口
+Bilibili_remove_ads_46 = type=http-response, pattern=^https:\/\/app\.bilibili\.com\/x\/resource\/top\/activity\?, script-path=https://gitlab.com/lodepuly/vpn_tool/-/raw/main/Resource/Script/Bilibili/Bilibili_remove_ads.js, requires-body=true, max-size=3145728, timeout=30
+
+# 移除直播内容和大会员专享
+Bilibili_remove_ads_48 = type=http-response, pattern=^https:\/\/app\.bilibili\.com\/x\/v2\/feed\/index\/story, script-path=https://gitlab.com/lodepuly/vpn_tool/-/raw/main/Resource/Script/Bilibili/Bilibili_remove_ads.js, requires-body=true, max-size=3145728, timeout=30
+
+# 精简首页顶部标签
+Bilibili_remove_ads_50 = type=http-response, pattern=^https:\/\/app\.bilibili\.com\/x\/resource\/show\/tab\/v2\?, script-path=https://gitlab.com/lodepuly/vpn_tool/-/raw/main/Resource/Script/Bilibili/Bilibili_remove_ads.js, requires-body=true, max-size=3145728, timeout=30
+
+# 移除热搜广告
+Bilibili_remove_ads_52 = type=http-response, pattern=^https:\/\/app\.bilibili\.com\/x\/v2\/search\/square, script-path=https://gitlab.com/lodepuly/vpn_tool/-/raw/main/Resource/Script/Bilibili/Bilibili_remove_ads.js, requires-body=true, max-size=3145728, timeout=30
+
+# 移除观影页广告
+Bilibili_remove_ads_54 = type=http-response, pattern=^https:\/\/api\.bilibili\.com\/pgc\/page\/(bangumi|cinema\/tab\?), script-path=https://gitlab.com/lodepuly/vpn_tool/-/raw/main/Resource/Script/Bilibili/Bilibili_remove_ads.js, requires-body=true, max-size=3145728, timeout=30
+
+# 移除直播间广告
+Bilibili_remove_ads_56 = type=http-response, pattern=^https:\/\/api\.live\.bilibili\.com\/xlive\/app-room\/v1\/index\/getInfoByRoom\?, script-path=https://gitlab.com/lodepuly/vpn_tool/-/raw/main/Resource/Script/Bilibili/Bilibili_remove_ads.js, requires-body=true, max-size=3145728, timeout=30
+
+# 移除皮肤推送
+Bilibili_remove_ads_58 = type=http-response, pattern=^https:\/\/app\.bilibili\.com\/x\/resource\/show\/skin\?, script-path=https://gitlab.com/lodepuly/vpn_tool/-/raw/main/Resource/Script/Bilibili/Bilibili_remove_ads.js, requires-body=true, max-size=3145728, timeout=30
+
+# 精简我的页面
+Bilibili_remove_ads_60 = type=http-response, pattern=^https:\/\/app\.bilibili\.com\/x\/v2\/account\/(mine\?|mine\/ipad\?), script-path=https://gitlab.com/lodepuly/vpn_tool/-/raw/main/Resource/Script/Bilibili/Bilibili_remove_ads.js, requires-body=true, max-size=3145728, timeout=30
+
+# 解锁画质
+Bilibili_remove_ads_62 = type=http-response, pattern=^https:\/\/app\.bilibili\.com\/x\/v2\/account\/myinfo\?, script-path=https://gitlab.com/lodepuly/vpn_tool/-/raw/main/Resource/Script/Bilibili/Bilibili_remove_ads.js, requires-body=true, max-size=3145728, timeout=30
+
+[Map Local]
+
+# 移除搜索中的大家都在搜
+^https?:\/\/api\.vc\.bilibili\.com\/search_svr\/v\d\/Search\/recommend_words data="https://raw.githubusercontent.com/mieqq/mieqq/master/reject-dict.json"
+
+# 移除动态中的话题
+^https?:\/\/api\.vc\.bilibili\.com\/topic_svr\/v1\/topic_svr data="https://raw.githubusercontent.com/mieqq/mieqq/master/reject-dict.json"
+
+# 移除动态中的最常访问
+^https?:\/\/api\.vc\.bilibili\.com\/dynamic_svr\/v1\/dynamic_svr\/mix_uplist data="https://raw.githubusercontent.com/mieqq/mieqq/master/reject-dict.json"
+
+# 可能的一些推广(beta)
+^https?:\/\/api\.bili(bili\.com|api\.net)\/pgc\/season\/app\/related\/recommend\? data="https://raw.githubusercontent.com/mieqq/mieqq/master/reject-dict.json"
+
+# BiliBili漫画去广告
+^https?:\/\/manga\.bilibili\.com\/twirp\/comic\.v\d\.Comic\/Flash data="https://raw.githubusercontent.com/mieqq/mieqq/master/reject-dict.json"
+
+^https?:\/\/manga\.bilibili\.com\/twirp\/comic\.v\d\.Comic\/ListFlash data="https://raw.githubusercontent.com/mieqq/mieqq/master/reject-dict.json"
+
+^https:\/\/api\.bilibili\.com\/x\/web-interface\/zone\?jsonp=jsonp$ data="https://raw.githubusercontent.com/mieqq/mieqq/master/reject-200.txt"
+
+[MITM]
+
+hostname = %APPEND% app.bilibili.com,api.bilibili.com,api.live.bilibili.com,grpc.biliapi.net
