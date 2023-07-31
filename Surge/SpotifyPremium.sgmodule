@@ -1,0 +1,15 @@
+#!name=Spotify Premium
+#!desc=部分解锁premium,建议重新登录,音质不能设置为超高
+#!icon=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Spotify.png
+#!homepage=https://yfamily.vercel.app
+#!author=app2smile
+
+[Script]
+
+spotify-json_8 = type=http-request, pattern=^https:\/\/spclient\.wg\.spotify\.com\/(artistview\/v1\/artist|album-entity-view\/v2\/album)\/, script-path=https://raw.githubusercontent.com/app2smile/rules/master/js/spotify-json.js, timeout=30
+
+spotify-proto_9 = type=http-response, pattern=^https:\/\/spclient\.wg\.spotify\.com\/(bootstrap\/v1\/bootstrap|user-customization-service\/v1\/customize)$, script-path=https://raw.githubusercontent.com/app2smile/rules/master/js/spotify-proto.js, requires-body=true, max-size=3145728, binary-body-mode=true, timeout=30
+
+[MITM]
+
+hostname = %APPEND% spclient.wg.spotify.com
