@@ -31,7 +31,6 @@ DOMAIN-SUFFIX, 163jiasu.com, REJECT
 # 评论页,插入广告,回复广告,星评馆
 ^https?:\/\/interface3\.music\.163\.com\/eapi\/comment\/(hotcomment\/collect\/fetchmodelinfov2|feed\/inserted\/resources|tips\/v2\/get)\? reject-dict
 ^https?:\/\/interface3\.music\.163\.com\/eapi\/v1\/content\/exposure\/comment\/banner\/get\? reject-dict
-^https?:\/\/interface3\.music\.163\.com\/eapi\/batch\? header-replace-regex Cookie appver=\d\.\d\.\d\d appver=9999
 
 # 首页,右上角多余图标,会员续费弹窗,侧边栏推广
 ^https?:\/\/interface3\.music\.163\.com\/eapi\/event\/floating\/layer\? url reject-dict
