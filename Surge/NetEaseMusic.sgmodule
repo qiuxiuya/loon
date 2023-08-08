@@ -1,14 +1,13 @@
 #!name=解锁网易云黑胶音乐试听
-#!desc=在TEXAS的帮助下（指全是他写的😘），解决添加歌单问题，此版本整合了key佬的去广告
+#!desc=解锁网易云黑胶音乐试听，整合了key佬的去广告
 #!author= qiuxiuya TEXAS Keywos
 
 [General]
-
 force-http-engine-hosts = %APPEND% 59.111.*:0, iadmusicmatvideo.music.126.net
 
 [URL Rewrite]
-
-^https?:\/\/httpdns.n.netease.com\/ - reject
+^https?:\/\/httpdns.n\.netease\.com - reject
+^https?:\/\/httpdns\.music\.163\.com - reject
 
 [Rule]
 DOMAIN,iadmusicmat.music.126.net,REJECT-NO-DROP
@@ -26,17 +25,16 @@ DOMAIN-SUFFIX,163jiasu.com,REJECT-NO-DROP
 # 播放页live或直播｜(首页免或vip图标｜小提示)
 ^https?:\/\/interface3?\.music\.163.com\/eapi\/(mlivestream\/entrance\/playpage|link\/(position\/show\/(strategy|resource)|scene\/show)) data="https://raw.githubusercontent.com/Keywos/rule/main/mocks/blank_dict.json"
 # 黑胶弹窗｜会员试用
-^https?:\/\/interface3?\.music\.163.com\/eapi\/(ad|vipcenter\/tspopup\/get|vipauth\/app\/auth|music-vip-membership\/client\/vip\/info|zone\/songplay\/entry\/get) data="https://raw.githubusercontent.com/Keywos/rule/main/mocks/blank_dict.json"
+^https?:\/\/interface3?\.music\.163.com\/eapi\/(vipcenter\/tspopup\/get|vipauth\/app\/auth|music-vip-membership\/client\/vip\/info|zone\/songplay\/entry\/get) data="https://raw.githubusercontent.com/Keywos/rule/main/mocks/blank_dict.json"
 # 搜索页热搜卡片｜猜你喜欢｜我的应用下方提醒
 ^https?:\/\/interface3?\.music\.163.com\/w?e?api\/(search\/(chart|default|rcmd\/keyword|specialkeyword)|(resource-exposure\/|middle\/clientcfg\/config)|activity\/bonus\/playpage\/time\/query) data="https://raw.githubusercontent.com/Keywos/rule/main/mocks/blank_dict.json"
 # 侧边栏
 ^https?:\/\/interface3?\.music\.163\.com\/eapi\/(side-bar\/mini-program\/music-service\/account|delivery\/batch-deliver) data="https://raw.githubusercontent.com/Keywos/rule/main/mocks/blank_dict.json"
-
+^https?:\/\/(ipv4|interface3?)\.music\.163.com\/eapi\/ad data="https://raw.githubusercontent.com/Keywos/rule/main/mocks/blank_dict.json"
 [Script]
 #解锁黑椒音乐
-wyy_7 = type=http-request, pattern=^https?:\/\/.+music\.163\.com\/.*(player\/url|entrance|\/eapi\/search\/), script-path=https://raw.githubusercontent.com/qiuxiuya/qiuxiuya/main/Loon/wyy.js, timeout=30
-[Header Rewrite]
-^https?:\/\/interface3?\.music\.163\.com\/eapi\/batch header-replace-regex cookie appver=.+$ appver=2333
+wyy = type=http-request, pattern=^https?:\/\/.+music\.163\.com\/.*(player\/url|entrance|\/eapi\/search\/), script-path=https://raw.githubusercontent.com/qiuxiuya/qiuxiuya/main/Loon/wyy.js, timeout=30
+
 [MITM]
 
-hostname = %APPEND% 59.111.*, 112.13.119.52, 117.147.199.59, interface*.music.163.com:0, httpdns.n.netease.com, *.163jiasu.com
+hostname = %APPEND% 59.111.*, 112.13.119.52, 117.147.199.59, interface*.music.163.com:0, httpdns.n.netease.com, *.163jiasu.com, ipv4.music.163.com
