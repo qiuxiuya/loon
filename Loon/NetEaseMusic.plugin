@@ -1,11 +1,11 @@
 #!name=解锁网易云黑胶音乐试听
-#!desc=在TEXAS的帮助下（指全是他写的😘），解决添加歌单问题，此版本整合了key佬的去广告
+#!desc=解锁网易云黑胶音乐试听，整合了key佬的去广告
 #!author= qiuxiuya TEXAS Keywos
 #!homepage=https://t.me/zdqiuxiuya
 #!icon= https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Netease_Music_Unlock.png
 [Script]
 #解锁黑椒音乐
-http-request https:\/\/interface3\.music\.163\.com\/eapi\/song\/enhance\/player\/url.* script-path= https://raw.githubusercontent.com/qiuxiuya/qiuxiuya/main/Loon/wyy.js, timeout=60
+http-request ^https?:\/\/(?!music\.163\.com\/eapi\/v1\/cloud\/).+music\.163\.com\/.*(player\/url) script-path= https://raw.githubusercontent.com/qiuxiuya/qiuxiuya/main/Loon/wyy.js, timeout=60
 [Rule]
 DOMAIN, gdt.qq.com, REJECT
 DOMAIN, httpdns.n.netease.com, REJECT
