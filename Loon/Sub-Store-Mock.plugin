@@ -1,54 +1,41 @@
-#!name=Sub-Store Mock
-#!desc=前端页面加速模块: 提升加载速度/减少资源使用/新主题 需要搭配 SubStore 主程序使用
-#!icon = https://raw.githubusercontent.com/Keywos/rule/main/tv/app/144px/substore.png
+#!name=Sub-Store-Mock
+#!desc=高级订阅管理工具
+#!openUrl=https://sub.store
+#!author=Peng-YM
+#!homepage=https://github.com/Peng-YM/Sub-Store
+#!icon=https://raw.githubusercontent.com/58xinian/icon/master/Sub-Store1.png
+#!select = 节点缓存有效期,1分钟,5分钟,10分钟,30分钟,1小时,2小时,3小时,6小时,12小时,24小时,48小时,72小时,参数传入
 
 [Rule]
 DOMAIN,sub-store.vercel.app,PROXY
 
 [Script]
-
 # HTML
-http-request ^https?:\/\/sub-store\.vercel\.app\/($|subs$|my$|edit\/subs\/) script-path=https://raw.githubusercontent.com/Keywos/rule/main/mocks/sub/index.html/_end_/index.html?type=mock&target-app=loon-plugin&header=Content-Type%3A%20text%2Fhtml%3B%20charset%3Dutf-8&keepHeader=true&jsDelivr=true, timeout=60 ,tag=index.html_10
-
+http-request ^https?:\/\/sub-store\.vercel\.app\/($|subs$|my$|edit\/subs\/) script-path=https://raw.githubusercontent.com/xream/scripts/main/surge/modules/echo-response/index.js, tag=index_10, argument=type=text/json&url=https://raw.githubusercontent.com/Keywos/rule/main/mocks/sub/index.html
 # JS VUE
-http-request ^https?:\/\/sub-store\.vercel\.app\/assets\/index\.[a-z0-9]{8}\.js script-path=https://raw.githubusercontent.com/Keywos/rule/main/mocks/sub/index.js/_end_/index.js?type=mock&target-app=loon-plugin&header=Content-Type%3A%20application%2Fjavascript%3B%20charset%3Dutf-8&keepHeader=true&jsDelivr=true, timeout=60 ,tag=index.js_12
-
-http-request ^https?:\/\/sub-store\.vercel\.app\/assets\/@vueuse\/core\.[a-z0-9]{8}\.js script-path=https://raw.githubusercontent.com/Keywos/rule/main/mocks/sub/core.js/_end_/core.js?type=mock&target-app=loon-plugin&header=Content-Type%3A%20application%2Fjavascript%3B%20charset%3Dutf-8&keepHeader=true&jsDelivr=true, timeout=60 ,tag=core.js_13
-
-http-request ^https?:\/\/sub-store\.vercel\.app\/assets\/@nutui\/nutui\.[a-z0-9]{8}\.js script-path=https://raw.githubusercontent.com/Keywos/rule/main/mocks/sub/nutui.js/_end_/nutui.js?type=mock&target-app=loon-plugin&header=Content-Type%3A%20application%2Fjavascript%3B%20charset%3Dutf-8&keepHeader=true&jsDelivr=true, timeout=60 ,tag=nutui.js_14
-
+http-request ^https?:\/\/sub-store\.vercel\.app\/assets\/index\.[a-z0-9]{8}\.js script-path=https://raw.githubusercontent.com/xream/scripts/main/surge/modules/echo-response/index.js, tag=index_12, argument=type=text/json&url=https://raw.githubusercontent.com/Keywos/rule/main/mocks/sub/index.js
+http-request ^https?:\/\/sub-store\.vercel\.app\/assets\/@vueuse\/core\.[a-z0-9]{8}\.js script-path=https://raw.githubusercontent.com/xream/scripts/main/surge/modules/echo-response/index.js, tag=core_13, argument=type=text/json&url=https://raw.githubusercontent.com/Keywos/rule/main/mocks/sub/core.js
+http-request ^https?:\/\/sub-store\.vercel\.app\/assets\/@nutui\/nutui\.[a-z0-9]{8}\.js script-path=https://raw.githubusercontent.com/xream/scripts/main/surge/modules/echo-response/index.js, tag=nutui_14, argument=type=text/json&url=https://raw.githubusercontent.com/Keywos/rule/main/mocks/sub/nutui.js
 # CSS
-http-request ^https?:\/\/sub-store\.vercel\.app\/assets\/index\.[a-z0-9]{8}\.css script-path=https://raw.githubusercontent.com/Keywos/rule/main/mocks/sub/index.css/_end_/index.css?type=mock&target-app=loon-plugin&header=Content-Type%3A%20text%2Fcss%3B%20charset%3Dutf-8&keepHeader=true&jsDelivr=true, timeout=60 ,tag=index.css_16
-
+http-request ^https?:\/\/sub-store\.vercel\.app\/assets\/index\.[a-z0-9]{8}\.css script-path=https://raw.githubusercontent.com/xream/scripts/main/surge/modules/echo-response/index.js, tag=index_16, argument=type=text/json&url=https://raw.githubusercontent.com/Keywos/rule/main/mocks/sub/index.css
 # JSON Manifest
-http-request ^https?:\/\/sub-store\.vercel\.app\/manifest\.json script-path=https://raw.githubusercontent.com/Keywos/rule/main/mocks/sub/manifest.json/_end_/manifest.json?type=mock&target-app=loon-plugin&header=Content-Type%3A%20application%2Fjson%3B%20charset%3Dutf-8&keepHeader=true&jsDelivr=true, timeout=60 ,tag=manifest.json_18
-
+http-request ^https?:\/\/sub-store\.vercel\.app\/manifest\.json script-path=https://raw.githubusercontent.com/xream/scripts/main/surge/modules/echo-response/index.js, tag=manifest_18, argument=type=text/json&url=https://raw.githubusercontent.com/Keywos/rule/main/mocks/sub/manifest.json
 # PNG ICO SVG
-http-request ^https?:\/\/sub-store\.vercel\.app\/144x144\.png script-path=https://raw.githubusercontent.com/Keywos/rule/main/mocks/sub/144x144.png/_end_/144x144.png?type=mock&target-app=loon-plugin&header=Content-Type%3A%20image%2Fpng&keepHeader=true&jsDelivr=true, timeout=60 ,tag=144x144.png_20
-
-http-request ^https?:\/\/sub-store\.vercel\.app\/[^14]\d{1,2}x\d{1,3}\.png script-path=https://raw.githubusercontent.com/Keywos/rule/main/mocks/sub/144x144.png/_end_/144x144.png?type=mock&target-app=loon-plugin&header=Content-Type%3A%20image%2Fpng&keepHeader=true&jsDelivr=true, timeout=60 ,tag=144x144.png_21
-
-http-request ^https?:\/\/sub-store\.vercel\.app\/apple-touch-icon\.png script-path=https://raw.githubusercontent.com/Keywos/rule/main/mocks/sub/apple-touch-icon.png/_end_/apple-touch-icon.png?type=mock&target-app=loon-plugin&header=Content-Type%3A%20image%2Fpng&keepHeader=true&jsDelivr=true, timeout=60 ,tag=apple-touch-icon.png_22
-
-http-request ^https?:\/\/sub-store\.vercel\.app\/apple-touch-icon-.+\.png script-path=https://raw.githubusercontent.com/Keywos/rule/main/mocks/sub/apple-touch-icon-120x120.png/_end_/apple-touch-icon-120x120.png?type=mock&target-app=loon-plugin&header=Content-Type%3A%20image%2Fpng&keepHeader=true&jsDelivr=true, timeout=60 ,tag=apple-touch-icon-120x120.png_23
-
-http-request ^https?:\/\/sub-store\.vercel\.app\/favicon\.svg$ script-path=https://raw.githubusercontent.com/Keywos/rule/main/mocks/sub/favicon.svg/_end_/favicon.svg?type=mock&target-app=loon-plugin&header=Content-Type%3A%20image%2Fsvg%2Bxml&keepHeader=true&jsDelivr=true, timeout=60 ,tag=favicon.svg_24
-
-http-request ^https?:\/\/sub-store\.vercel\.app\/favicon\.ico script-path=https://raw.githubusercontent.com/Keywos/rule/main/mocks/sub/favicon.ico/_end_/favicon.ico?type=mock&target-app=loon-plugin&header=Content-Type%3A%20image%2Fvnd.microsoft.icon&keepHeader=true&jsDelivr=true, timeout=60 ,tag=favicon.ico_25
-
-http-request ^https?:\/\/sub-store\.vercel\.app\/assets\/logo\.[a-z0-9]{8}.svg script-path=https://raw.githubusercontent.com/Keywos/rule/main/mocks/sub/logo.svg/_end_/logo.svg?type=mock&target-app=loon-plugin&header=Content-Type%3A%20image%2Fsvg%2Bxml&keepHeader=true&jsDelivr=true, timeout=60 ,tag=logo.svg_26
-
-http-request ^https?:\/\/sub-store\.vercel\.app\/assets\/user-solid\.[a-z0-9]{8}\.svg script-path=https://raw.githubusercontent.com/Keywos/rule/main/mocks/sub/user-solid.svg/_end_/user-solid.svg?type=mock&target-app=loon-plugin&header=Content-Type%3A%20image%2Fsvg%2Bxml&keepHeader=true&jsDelivr=true, timeout=60 ,tag=user-solid.svg_27
-
-http-request ^https?:\/\/sub-store\.vercel\.app\/assets\/key-solid\.[a-z0-9]{8}\.svg script-path=https://raw.githubusercontent.com/Keywos/rule/main/mocks/sub/key-solid.svg/_end_/key-solid.svg?type=mock&target-app=loon-plugin&header=Content-Type%3A%20image%2Fsvg%2Bxml&keepHeader=true&jsDelivr=true, timeout=60 ,tag=key-solid.svg_28
-
-http-request ^https?:\/\/sub-store\.vercel\.app\/assets\/avatar\.[a-z0-9]{8}\.svg script-path=https://raw.githubusercontent.com/Keywos/rule/main/mocks/sub/avatar.svg/_end_/avatar.svg?type=mock&target-app=loon-plugin&header=Content-Type%3A%20image%2Fsvg%2Bxml&keepHeader=true&jsDelivr=true, timeout=60 ,tag=avatar.svg_29
-
+http-request ^https?:\/\/sub-store\.vercel\.app\/144x144\.png script-path=https://raw.githubusercontent.com/xream/scripts/main/surge/modules/echo-response/index.js, tag=144x144_20, argument=type=text/json&url=https://raw.githubusercontent.com/Keywos/rule/main/mocks/sub/144x144.png
+http-request ^https?:\/\/sub-store\.vercel\.app\/[^14]\d{1,2}x\d{1,3}\.png script-path=https://raw.githubusercontent.com/xream/scripts/main/surge/modules/echo-response/index.js, tag=144x144_21, argument=type=text/json&url=https://raw.githubusercontent.com/Keywos/rule/main/mocks/sub/144x144.png
+http-request ^https?:\/\/sub-store\.vercel\.app\/apple-touch-icon\.png script-path=https://raw.githubusercontent.com/xream/scripts/main/surge/modules/echo-response/index.js, tag=apple-touch-icon_22, argument=type=text/json&url=https://raw.githubusercontent.com/Keywos/rule/main/mocks/sub/apple-touch-icon.png
+http-request ^https?:\/\/sub-store\.vercel\.app\/apple-touch-icon-.+\.png script-path=https://raw.githubusercontent.com/xream/scripts/main/surge/modules/echo-response/index.js, tag=apple-touch-icon-120x120_23, argument=type=text/json&url=https://raw.githubusercontent.com/Keywos/rule/main/mocks/sub/apple-touch-icon-120x120.png
+http-request ^https?:\/\/sub-store\.vercel\.app\/favicon\.svg$ script-path=https://raw.githubusercontent.com/xream/scripts/main/surge/modules/echo-response/index.js, tag=favicon_24, argument=type=text/json&url=https://raw.githubusercontent.com/Keywos/rule/main/mocks/sub/favicon.svg
+http-request ^https?:\/\/sub-store\.vercel\.app\/favicon\.ico script-path=https://raw.githubusercontent.com/xream/scripts/main/surge/modules/echo-response/index.js, tag=favicon_25, argument=type=text/json&url=https://raw.githubusercontent.com/Keywos/rule/main/mocks/sub/favicon.ico
+http-request ^https?:\/\/sub-store\.vercel\.app\/assets\/logo\.[a-z0-9]{8}.svg script-path=https://raw.githubusercontent.com/xream/scripts/main/surge/modules/echo-response/index.js, tag=logo_26, argument=type=text/json&url=https://raw.githubusercontent.com/Keywos/rule/main/mocks/sub/logo.svg
+http-request ^https?:\/\/sub-store\.vercel\.app\/assets\/user-solid\.[a-z0-9]{8}\.svg script-path=https://raw.githubusercontent.com/xream/scripts/main/surge/modules/echo-response/index.js, tag=user-solid_27, argument=type=text/json&url=https://raw.githubusercontent.com/Keywos/rule/main/mocks/sub/user-solid.svg
+http-request ^https?:\/\/sub-store\.vercel\.app\/assets\/key-solid\.[a-z0-9]{8}\.svg script-path=https://raw.githubusercontent.com/xream/scripts/main/surge/modules/echo-response/index.js, tag=key-solid_28, argument=type=text/json&url=https://raw.githubusercontent.com/Keywos/rule/main/mocks/sub/key-solid.svg
+http-request ^https?:\/\/sub-store\.vercel\.app\/assets\/avatar\.[a-z0-9]{8}\.svg script-path=https://raw.githubusercontent.com/xream/scripts/main/surge/modules/echo-response/index.js, tag=avatar_29, argument=type=text/json&url=https://raw.githubusercontent.com/Keywos/rule/main/mocks/sub/avatar.svg
 # FONT
-http-request ^https?:\/\/sub-store\.vercel\.app\/assets/iconfont\.[a-z0-9]{8}\.woff2 script-path=https://raw.githubusercontent.com/Keywos/rule/main/mocks/sub/iconfont.woff2/_end_/iconfont.woff2?type=mock&target-app=loon-plugin&header=Content-Type%3A%20font%2Fwoff2&keepHeader=true&jsDelivr=true, timeout=60 ,tag=iconfont.woff2_31
-
+http-request ^https?:\/\/sub-store\.vercel\.app\/assets/iconfont\.[a-z0-9]{8}\.woff2 script-path=https://raw.githubusercontent.com/xream/scripts/main/surge/modules/echo-response/index.js, tag=iconfont_31, argument=type=text/json&url=https://raw.githubusercontent.com/Keywos/rule/main/mocks/sub/iconfont.woff2
+#Sub-Store
 http-request ^https?:\/\/sub\.store\/((download)|api\/(preview|sync|(utils\/node-info))) script-path=https://github.com/sub-store-org/Sub-Store/releases/latest/download/sub-store-1.min.js, requires-body=true, timeout=120, tag=Sub-Store Core
 http-request ^https?:\/\/sub\.store script-path=https://github.com/sub-store-org/Sub-Store/releases/latest/download/sub-store-0.min.js, requires-body=true, timeout=120, tag=Sub-Store Simple
 
 [MITM]
-hostname=sub.store
+hostname = sub.store,sub-store.vercel.app
