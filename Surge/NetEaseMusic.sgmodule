@@ -38,4 +38,4 @@ wyy = type=http-request, pattern=^https?:\/\/.+music\.163\.com\/.*(player\/url|e
 
 [MITM]
 
-hostname = %APPEND% 59.111.*, 112.13.119.52, 117.147.199.59, interface*.music.163.com:0, httpdns.n.netease.com, *.163jiasu.com, ipv4.music.163.com
+hostname = %APPEND% 59.111.*, 112.13.119.52, 117.147.199.59, interface*.music.163.com, httpdns.n.netease.com, *.163jiasu.com, ipv4.music.163.com
