@@ -1,6 +1,6 @@
 /*
 注⚠️：脚本的运行需提前在VPS上完成相关操作
-原作者：@GetSomeNeko 由@clydetime 整点猫咪进行了一些修改
+原作者：@GetSomeNeko 由@clydetime 整点猫咪   @qiuxiuya进行了一些修改
 参数介绍：
 url：你的VPS设置的链接
 name：Panel的标题
@@ -37,15 +37,14 @@ argument = url=http://127.0.0.1:7122&name=花里胡哨才是生产力&icon=bolt.
   let message = ""
   if (array.length == 1) {
     let data = array[0]
-    message = `CPU:    ${data.cpuUsage}        |  MEM:    ${data.memUsage}\n` +
-    `Total: ${data.trafficSize}\n` +
-    `Uptime: ${formatUptime(data.jsonData.uptime)};
+    message = `CPU:  ${data.cpuUsage}   |  MEM:  ${data.memUsage}\n` +
+    `Utilised: ${data.trafficSize}\n` +
+    `Uptime: ${formatUptime(data.jsonData.uptime)}`;
   } else if (array.length > 1) {
     let i = 0
     array.forEach(data => {
       message += `${params[allName[i]]}\n` + 
-      `Total: ${data.trafficSize}\n` + 
-      `Last Update: ${data.timeString}\n\n`;
+      `Utilised: ${data.trafficSize}\n\n`;
       i += 1;
     })
   }
