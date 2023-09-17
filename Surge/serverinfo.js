@@ -38,15 +38,12 @@ argument = url=http://127.0.0.1:7122&name=花里胡哨才是生产力&icon=bolt.
   if (array.length == 1) {
     let data = array[0]
     message = `CPU:    ${data.cpuUsage}        |  MEM:    ${data.memUsage}\n` +
-    `Recv: ${bytesToSize(data.outTraffic)}  |  Sent: ${bytesToSize(data.inTraffic)}\n` +
     `Total: ${data.trafficSize}\n` +
-    `Uptime: ${formatUptime(data.jsonData.uptime)}\n` +
-    `Last Update: ${data.timeString}`;
+    `Uptime: ${formatUptime(data.jsonData.uptime)};
   } else if (array.length > 1) {
     let i = 0
     array.forEach(data => {
       message += `${params[allName[i]]}\n` + 
-      `Recv: ${bytesToSize(data.outTraffic)}  |  Sent: ${bytesToSize(data.inTraffic)}\n` + 
       `Total: ${data.trafficSize}\n` + 
       `Last Update: ${data.timeString}\n\n`;
       i += 1;
