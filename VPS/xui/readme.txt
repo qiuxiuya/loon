@@ -1,1 +1,0 @@
-apt install screen masscan libpcap-dev python3 python3-pip && pip3 install requests
