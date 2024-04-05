@@ -2098,7 +2098,7 @@ function log_outbound_config() {
   local config_file="/usr/local/etc/sing-box/config.json"
   if ! grep -q '"log": {' "$config_file" || ! grep -q '"route": {' "$config_file"  || ! grep -q '"inbounds": \[' "$config_file" || ! grep -q '"outbounds": \[' "$config_file"; then
     echo -e '{\n  "log": {\n  },\n  "route": {\n  },\n  "inbounds": [\n  ],\n  "outbounds": [\n  ]\n}' > "$config_file"
-    sed -i '/"log": {/!b;n;c\    "disabled": false,\n    "level": "info",\n    "timestamp": true\n  },' "$config_file"
+    sed -i '/"log": {/!b;n;c\    "disabled": true,\n    "level": "info",\n    "timestamp": true\n  },' "$config_file"
     sed -i '/"route": {/!b;n;c\    "rules": [\n    ]\n  },' "$config_file"
     sed -i '/"outbounds": \[/!b;n;c\    {\n      "type": "direct",\n      "tag": "direct"\n    }\n  ]' "$config_file"
   fi
