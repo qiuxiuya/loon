@@ -1,0 +1,2 @@
+mkdir -p /root/crt
+openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /root/crt/bing.key -out /root/crt/bing.crt -subj "/C=US/ST=YourState/L=YourCity/O=YourOrganization/CN=www.bing.com" > /dev/null 2>&1
