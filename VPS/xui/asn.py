@@ -24,7 +24,7 @@ def is_ipv4(prefix):
         return False
 
 def main():
-    as_numbers = input("ASN(多个可用逗号分隔):").split(','|'，')
+    as_numbers = input("ASN(多个可用逗号分隔):").split(',')
     as_numbers = [asn.strip() for asn in as_numbers]
 
     all_ipcird_list = []
