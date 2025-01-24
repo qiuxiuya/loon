@@ -52,16 +52,18 @@ bash <(wget -qO- https://raw.githubusercontent.com/sing-web/**x**-**ui**/main/in
 bash <(curl -Ls [https://raw.githubusercontent.com/mhsanaei/3x-ui/master/install.sh](https://raw.githubusercontent.com/mhsanaei/3x-ui/master/install.sh))
 ```
 
-```### 多功能工具箱
+```###kejilion工具箱
 
 ```jsx
 curl -sS -O https://raw.githubusercontent.com/kejilion/sh/main/kejilion.sh && chmod +x kejilion.sh && ./kejilion.sh
 ```
-### 一键Gost转发
+
+Gost转发
 
 ```jsx
 wget --no-check-certificate -O gost.sh https://raw.githubusercontent.com/KANIKIG/Multi-EasyGost/master/gost.sh && chmod +x gost.sh && ./gost.sh
 ```
+
 ### v4/v6优先切换
 
 v4优先
@@ -69,43 +71,51 @@ v4优先
 ```jsx
 sed -i 's/#precedence ::ffff:0:0\/96  100/precedence ::ffff:0:0\/96  100/' /etc/gai.conf
 ```
+
 v6优先
 
 ```jsx
 sed -i 's/precedence ::ffff:0:0\/96  100/#precedence ::ffff:0:0\/96  100/' /etc/gai.conf
 ```
-验证 `curl [ip.sb](http://ip.sb/)`
+
+验证 `curl ip.sb`
 
 ### 一键WARP
 
 ```jsx
 wget -N [https://gitlab.com/fscarmen/warp/-/raw/main/menu.sh](https://gitlab.com/fscarmen/warp/-/raw/main/menu.sh) && bash [menu.sh](http://menu.sh/)
 ```
+
 ### 免费DNS解锁
 
 ```jsx
 wget -O /tmp/lyz [http://tanainai.net/statics/bin/lyz-v0.0.3-linux-amd64](http://tanainai.net/statics/bin/lyz-v0.0.3-linux-amd64) && chmod +x /tmp/lyz && /tmp/lyz install_personal
 ```
+
 ### 一键Alist
 
 ```jsx
 curl -fsSL "[https://alist.nn.ci/v3.sh](https://alist.nn.ci/v3.sh)" | bash -s install
 ```
+
 ### 一键ACME申请证书
 
 ```jsx
 wget -N --no-check-certificate [https://raw.githubusercontent.com/Misaka-blog/acme-script/main/acme.sh](https://raw.githubusercontent.com/Misaka-blog/acme-script/main/acme.sh) && bash [acme.sh](http://acme.sh/)
 ```
+
 ### 一键安装Caddy反代
 
 ```jsx
 bash <(curl -L -s [https://raw.githubusercontent.com/qiuxiuya/qiuxiuya/main/VPS/caddy.sh](https://raw.githubusercontent.com/qiuxiuya/qiuxiuya/main/VPS/caddy.sh))
 ```
+
 ### magicTCP(魔改BBR)
 
 ```jsx
 bash <(curl -sSL [https://raw.githubusercontent.com/qiuxiuya/magicTCP/main/main.sh](https://raw.githubusercontent.com/qiuxiuya/magicTCP/main/main.sh))
 ```
+
 先按1安装完会自动重启，重启好再运行一次按2
 
 ### 一键BBR
@@ -113,16 +123,19 @@ bash <(curl -sSL [https://raw.githubusercontent.com/qiuxiuya/magicTCP/main/main.
 ```jsx
 cd /usr/src && wget -N --no-check-certificate " ([https://raw.githubusercontent.com/chiakge/Linux-NetSpeed/master/tcp.sh](https://raw.githubusercontent.com/chiakge/Linux-NetSpeed/master/tcp.sh))[https://raw.githubusercontent.com/chiakge/Linux-NetSpeed/master/tcp.sh](https://raw.githubusercontent.com/chiakge/Linux-NetSpeed/master/tcp.sh)" ([https://raw.githubusercontent.com/chiakge/Linux-NetSpeed/master/tcp.sh](https://raw.githubusercontent.com/chiakge/Linux-NetSpeed/master/tcp.sh)) && chmod +x [tcp.sh](http://tcp.sh/) && ./tcp.sh
 ```
+
 ### 一键甲骨文保活
 
 ```jsx
 curl -L [https://gitlab.com/spiritysdx/Oracle-server-keep-alive-script/-/raw/main/oalive.sh](https://gitlab.com/spiritysdx/Oracle-server-keep-alive-script/-/raw/main/oalive.sh) -o [oalive.sh](http://oalive.sh/) && chmod +x [oalive.sh](http://oalive.sh/) && bash [oalive.sh](http://oalive.sh/)
 ```
+
 ### 一键获取Root
 
 ```jsx
 wget -N [https://gitlab.com/rwkgyg/vpsroot/raw/main/root.sh](https://gitlab.com/rwkgyg/vpsroot/raw/main/root.sh) && bash [root.sh](http://root.sh/)
 ```
+
 ### 1Panel面板(VPS管理面板)[[官网](https://1panel.cn/)]
 
 ### Debian
@@ -130,71 +143,85 @@ wget -N [https://gitlab.com/rwkgyg/vpsroot/raw/main/root.sh](https://gitlab.com/
 ```jsx
 curl -sSL [https://resource.fit2cloud.com/1panel/package/quick_start.sh](https://resource.fit2cloud.com/1panel/package/quick_start.sh) -o quick_start.sh && bash quick_start.sh
 ```
+
 ### **Ubuntu**
 
 ```jsx
 curl -sSL [https://resource.fit2cloud.com/1panel/package/quick_start.sh](https://resource.fit2cloud.com/1panel/package/quick_start.sh) -o quick_start.sh && sudo bash quick_start.sh
 ```
+
 ### **RedHat / CentOS**
 
 ```jsx
 curl -sSL [https://resource.fit2cloud.com/1panel/package/quick_start.sh](https://resource.fit2cloud.com/1panel/package/quick_start.sh) -o quick_start.sh && sh quick_start.sh
 ```
+
 ### 宝塔面板[[官网](https://www.bt.cn/)]
 
 ```jsx
 if [ -f /usr/bin/curl ];then curl -sSO [https://download.bt.cn/install/install_panel.sh;else](https://download.bt.cn/install/install_panel.sh;else) wget -O install_panel.sh [https://download.bt.cn/install/install_panel.sh;fi;bash](https://download.bt.cn/install/install_panel.sh;fi;bash) install_panel.sh ed8484bec
 ```
+
 ### 一键DD
 
 ```jsx
 wget --no-check-certificate -qO InstallNET.sh 'https://raw.githubusercontent.com/leitbogioro/Tools/master/Linux_reinstall/InstallNET.sh' && chmod a+x InstallNET.sh && bash InstallNET.sh -debian 11 -pwd 密码
 ```
+
 ### Sub-Store
 
 ```jsx
 curl -sSL [https://sub-store-org.github.io/resource/ssm/install.sh](https://sub-store-org.github.io/resource/ssm/install.sh) | bash
 ```
+
 ### 哪吒监控面板
 
 ```jsx
 curl -L [https://raw.githubusercontent.com/naiba/nezha/master/script/install.sh](https://raw.githubusercontent.com/naiba/nezha/master/script/install.sh) -o [nezha.sh](http://nezha.sh/) && chmod +x [nezha.sh](http://nezha.sh/) && sudo ./nezha.sh
 ```
+
 ### subconverter订阅转换
 
 ```jsx
 docker run -d --restart=always -p 25500:25500 tindy2013/subconverter:latest
 ```
+
 ### Nexttrace路由测试
 
 ```jsx
 bash <(curl -Ls [https://raw.githubusercontent.com/sjlleo/nexttrace/main/nt_install.sh](https://raw.githubusercontent.com/sjlleo/nexttrace/main/nt_install.sh))
 ```
+
 ### 流媒体检测(去广告版)
 
 ```jsx
 bash <(curl -L -s https://raw.githubusercontent.com/1-stream/RegionRestrictionCheck/main/check.sh)
 ```
+
 ### 流媒体检测(带DNS解锁检测)
 
 ```jsx
 bash <(curl -L -s [media.ispvps.com](http://media.ispvps.com/))
 ```
+
 ### 三网回程检测
 
 ```jsx
 curl [https://raw.githubusercontent.com/zhanghanyun/backtrace/main/install.sh](https://raw.githubusercontent.com/zhanghanyun/backtrace/main/install.sh) -sSf | sh
 ```
+
 ### 三网回程速度测试
 
 ```jsx
 bash <(curl -Lso- https://raw.githubusercontent.com/uxh/superspeed/master/superspeed.sh)
 ```
+
 ### 融合怪测试
 
 ```jsx
 curl -L [https://gitlab.com/spiritysdx/za/-/raw/main/ecs.sh](https://gitlab.com/spiritysdx/za/-/raw/main/ecs.sh) -o [ecs.sh](http://ecs.sh/) && chmod +x [ecs.sh](http://ecs.sh/) && bash [ecs.sh](http://ecs.sh/)
 ```
+
 ## *一键封号(人形)*
 
 ### Linux版
@@ -202,11 +229,13 @@ curl -L [https://gitlab.com/spiritysdx/za/-/raw/main/ecs.sh](https://gitlab.com/
 ```jsx
 wget [https://raw.githubusercontent.com/TeamPGM/PagerMaid-Pyro/development/utils/install.sh](https://raw.githubusercontent.com/TeamPGM/PagerMaid-Pyro/development/utils/install.sh) -O [install.sh](http://install.sh/) && chmod +x [install.sh](http://install.sh/) && bash [install.sh](http://install.sh/)
 ```
+
 ### Docker版
 
 ```jsx
 wget [https://raw.githubusercontent.com/TeamPGM/PagerMaid-Pyro/development/utils/docker.sh](https://raw.githubusercontent.com/TeamPGM/PagerMaid-Pyro/development/utils/docker.sh) -O [docker.sh](http://docker.sh/) && chmod +x [docker.sh](http://docker.sh/) && bash [docker.sh](http://docker.sh/)
 ```
+
 ### Pagermaid-Pyro 一键脚本重制版@EAlyce
 
 ```jsx
