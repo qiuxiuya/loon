@@ -1,4 +1,4 @@
-## Hi there 👋
+## Hi there is a normal student's Github
 
 <!--
 **qiuxiuya/qiuxiuya** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
