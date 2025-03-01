@@ -1,1 +1,0 @@
-## Hi there is a normal student's Github
